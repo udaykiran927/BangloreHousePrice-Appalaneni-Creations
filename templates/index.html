@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet"  type='text/css' media='screen' href="{{ url_for('static', filename='css/stylingcss.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model deployment</title>
+</head>
+<body>
+  <video autoplay loop muted plays-inline class="back-video">
+    <source src="/static/images/video.mp4" type="video/mp4">
+  </video>
+  <img src="/static/images/mychildhoodpic.png" alt="" class="userpic">
+  
+    <div class="container">
+      <div class="title"><b>HOUSE PRICE PREDICTION</b></div>
+      <div class="content">
+        <form action="{{ url_for('predict')}}" method="POST">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details"><b>Select Location</b></span>
+              <select class="det" id="location" name="loc" required="1">
+                {% for location in locations %}
+                  <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+              </select>        
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Enter size of BHK</b></span>
+              <input type="text" name="bed" placeholder="For example 2,3,4..." required>
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Enter Area of Square Feet Required</b></span>
+              <input type="text" name="sqft" placeholder="For example 1500,2000,10000 etc.." required>
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Enter no of bathrooms</b></span>
+              <input type="text" name="bath" placeholder="Enter" required>
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Enter no of upstairs</b></span>
+              <input type="text" name="upst" placeholder="Enter no of upstairs required..." required>
+            </div>
 
+          </div>
+          <div class="button">
+            <input type="submit" value="Predict"><br><br>
+          </div>
+          <br>
+        </form>
+      </div>
+    </div>
+    </form>
+  </div>
+  
+
+</body>
+</html>
