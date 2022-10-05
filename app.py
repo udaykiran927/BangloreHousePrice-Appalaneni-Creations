@@ -25,7 +25,7 @@ def predict():
     k=model.predict([predvalue])[0]
     now=datetime.datetime.now()
 
-    return render_template("submit.html",location=inputs[0],bhk=inputs[1],sqft=inputs[2],bath=inputs[3],upst=inputs[4],date_time=now,pred_val="₹ "+str(int((k))))
+    return render_template("submit.html",location=inputs[0],bhk=inputs[1],sqft=inputs[2],bath=inputs[3],upst=inputs[4],date_time=now,pred_val="₹ "+str(int(abs(k))))
 
 
 if __name__=='__main__':
